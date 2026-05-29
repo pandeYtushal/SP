@@ -7,11 +7,11 @@ function updateClock() {
     let hours = now.getHours();
     const minutes = now.getMinutes();
     const ampm = hours >= 12 ? 'PM' : 'AM';
-    
+
     hours = hours % 12;
-    hours = hours ? hours : 12; 
+    hours = hours ? hours : 12;
     const strMinutes = minutes < 10 ? '0' + minutes : minutes;
-    
+
     const timeString = `${hours}:${strMinutes} ${ampm}`;
     clockElement.textContent = timeString;
 }
@@ -25,7 +25,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const targetId = this.getAttribute('href').slice(1);
         if (!targetId) return;
-        
+
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
             window.scrollTo({
@@ -72,15 +72,8 @@ function renderComingSoon() {
     const container = document.getElementById('blog-container');
     container.innerHTML = `
         <div class="blog-card" style="cursor: default;">
-            <div class="blog-img-container">
-                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800" class="blog-img" alt="Coming Soon">
-                <span class="blog-badge">Stay Tuned</span>
-            </div>
             <div class="blog-content">
                 <h3>Writing my first stories...</h3>
-                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">
-                    Exciting content about UI/UX, CSS, and AI is on the way.
-                </p>
                 <div class="blog-date" style="margin-top: 16px;">
                     <i data-lucide="clock" style="width:14px;height:14px"></i>
                     Coming Soon
@@ -106,7 +99,7 @@ async function fetchMediumPosts(username) {
                 const date = new Date(post.pubDate).toLocaleDateString('en-US', {
                     month: 'short', day: 'numeric', year: 'numeric'
                 });
-                
+
                 let thumbnail = post.thumbnail;
                 if (!thumbnail || thumbnail.includes('stat?')) {
                     const imgMatch = post.description.match(/<img[^>]+src="([^">]+)"/);
@@ -167,7 +160,7 @@ if (savedTheme === 'light') {
 themeToggle.addEventListener('click', () => {
     clickSound.currentTime = 0;
     clickSound.play();
-    
+
     body.classList.toggle('light-theme');
     const isLight = body.classList.contains('light-theme');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
@@ -176,11 +169,11 @@ themeToggle.addEventListener('click', () => {
 
 function updateThemeIcon(iconName) {
     let icon = themeToggle.querySelector('i') || themeToggle.querySelector('svg');
-    
+
     if (icon) {
         // Add rotation animation
         icon.style.transform = 'rotate(180deg) scale(0)';
-        
+
         setTimeout(() => {
             if (icon.tagName.toLowerCase() === 'svg') {
                 const newIcon = document.createElement('i');
@@ -190,20 +183,29 @@ function updateThemeIcon(iconName) {
                 icon.setAttribute('data-lucide', iconName);
             }
             lucide.createIcons();
-            
+
             // Reset transformation for the new icon
             const updatedIcon = themeToggle.querySelector('i') || themeToggle.querySelector('svg');
             updatedIcon.style.transform = 'rotate(0deg) scale(1)';
         }, 200);
     }
 }
-// Navbar Scroll Effect
+// Navbar & Scroll Progress Effect
 window.addEventListener('scroll', () => {
+    // Navbar Scroll Effect
     const nav = document.querySelector('nav');
     if (window.scrollY > 50) {
         nav.classList.add('nav-scrolled');
     } else {
         nav.classList.remove('nav-scrolled');
+    }
+
+    // Scroll Progress Bar
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (scrollProgress) {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+        scrollProgress.style.width = `${progress}%`;
     }
 });
 
@@ -217,3 +219,62 @@ document.querySelectorAll('.spotlight-card').forEach(card => {
         card.style.setProperty('--mouse-y', `${y}px`);
     });
 });
+
+// Dynamic Footer Year
+const yearSpan = document.getElementById('current-year');
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+
+// Contact Modal Logic
+const contactModal = document.getElementById('contact-modal');
+const openModalBtns = document.querySelectorAll('.open-modal-btn');
+const closeModalBtn = document.getElementById('close-modal');
+
+if (contactModal && closeModalBtn) {
+    // Open modal
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            contactModal.classList.add('active');
+        });
+    });
+
+    // Close modal on X button
+    closeModalBtn.addEventListener('click', () => {
+        contactModal.classList.remove('active');
+    });
+
+    // Close modal on outside click
+    contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+            contactModal.classList.remove('active');
+        }
+    });
+
+    // Handle form submit
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            
+            // Simulate network request
+            setTimeout(() => {
+                submitBtn.textContent = 'Message Sent!';
+                submitBtn.style.background = '#10b981'; // Success green
+                submitBtn.style.color = '#fff';
+                
+                setTimeout(() => {
+                    contactModal.classList.remove('active');
+                    contactForm.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = ''; // Reset to default
+                    submitBtn.style.color = '';
+                }, 1500);
+            }, 1000);
+        });
+    }
+}

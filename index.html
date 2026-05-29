@@ -23,6 +23,7 @@
 </head>
 
 <body>
+    <div id="scroll-progress"></div>
     <nav>
         <div class="nav-content">
             <a href="#" class="brand">Srijiya</a>
@@ -60,21 +61,22 @@
 
             <!-- Actions -->
             <div class="actions">
-                <a href="Srijiya.pdf" class="btn btn-primary">
+                <a href="Srijiya.pdf" class="btn btn-primary" target="_blank">
                     <i data-lucide="file-text"></i>
                     Resume
                 </a>
-                <a href="#contact" class="btn btn-secondary">
+                <a href="#" class="btn btn-secondary open-modal-btn">
                     <i data-lucide="mail"></i>
                     Contact
                 </a>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/srijiyapandeyofficial123/" class="social-icon"
-                        aria-label="LinkedIn" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-icon" aria-label="Twitter/X" data-tooltip="Twitter"><i
+                        aria-label="LinkedIn" data-tooltip="LinkedIn" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter/X" data-tooltip="Twitter" target="_blank"><i
                             class="fab fa-twitter"></i></a>
                     <a href="https://github.com/pandeysrijiya/" class="social-icon" aria-label="GitHub"
-                        data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+                        data-tooltip="GitHub" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="mailto:srijiya.bca@email.com" class="social-icon" aria-label="Email"
                         data-tooltip="Email"><i class="fas fa-envelope"></i></a>
                 </div>
@@ -220,22 +222,16 @@
                     </div>
                     <div style="font-size: 14px; color: var(--text-secondary);">CGPA: 8.39/10</div>
                 </div>
-
-                <div class="resume-card">
-                    <div class="resume-header">
-                        <div class="resume-title-group">
-                            <h3>
-                                Class XII <span
-                                    style="color: var(--text-secondary); font-weight: normal; font-size: 16px;">|</span>
-                                <span style="font-weight: 500;">Purnia Mahila College</span>
-                            </h3>
-                        </div>
-                        <div class="resume-date">Apr 2022 - Mar 2023</div>
-                    </div>
-                </div>
             </div>
         </section>
 
+        <!-- Blogs Section -->
+        <section id="blogs">
+            <h2>Blogs & Articles</h2>
+            <div id="blog-container" class="blog-grid">
+                <!-- Blogs will be dynamically inserted here via script.js -->
+            </div>
+        </section>
 
         <!-- Achievements & Certifications -->
         <section id="achievements">
@@ -247,7 +243,8 @@
                     <div class="timeline-content">
                         <div class="timeline-meta">IIT Delhi</div>
                         <h3>Campus Ambassador</h3>
-                        <p>Represented the institution and facilitated student outreach for national-level programmes.</p>
+                        <p>Represented the institution and facilitated student outreach for national-level programmes.
+                        </p>
                     </div>
                 </div>
 
@@ -274,34 +271,80 @@
                     <div class="timeline-content">
                         <div class="timeline-meta">Ongoing</div>
                         <h3>Continuous Learning</h3>
-                        <p>Actively pursuing courses in modern web development, JavaScript, and software engineering fundamentals.</p>
+                        <p>Actively pursuing courses in modern web development, JavaScript, and software engineering
+                            fundamentals.</p>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" style="margin-top: 80px; margin-bottom: 60px; text-align: center;">
-            <h2 style="margin-bottom: 8px;">Let's Connect</h2>
-            <p style="color: var(--text-secondary); font-size: 15px; margin-bottom: 32px;">Feel free to reach out!</p>
-            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                <a href="mailto:srijiya.bca@email.com" class="social-icon" data-tooltip="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/srijiyapandeyofficial123/" target="_blank" class="social-icon" data-tooltip="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/pandeysrijiya/" target="_blank" class="social-icon" data-tooltip="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank" class="social-icon" data-tooltip="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <!-- Contact Modal -->
+        <div id="contact-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button id="close-modal" class="close-btn" aria-label="Close"><i data-lucide="x"></i></button>
+                <h2 style="margin-bottom: 8px; font-size: 24px;">Get In Touch</h2>
+                <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 24px;">I'd love to hear from
+                    you. Send me a message!</p>
+
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required placeholder=""></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; justify-content: center; margin-top: 16px;">Send Message</button>
+                </form>
+
+                <div class="modal-socials"
+                    style="margin-top: 32px; text-align: center; border-top: 1px solid var(--border-color); padding-top: 24px;">
+                    <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">Or connect with me
+                        here:</p>
+                    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                        <a href="mailto:srijiya.bca@email.com" class="social-icon" data-tooltip="Email"
+                            aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/srijiyapandeyofficial123/" target="_blank"
+                            class="social-icon" data-tooltip="LinkedIn" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/pandeysrijiya/" target="_blank" class="social-icon"
+                            data-tooltip="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" class="social-icon" data-tooltip="Twitter" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
     </main>
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: flex-end; margin-bottom: -16px; position: relative; z-index: 10;">
+        <a href="#home" class="static-back-to-top" aria-label="Back to Top" data-tooltip="Back to Top">
+            <i data-lucide="arrow-up"></i>
+        </a>
+    </div>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2026 Srijiya. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com/pandeysrijiya/"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/srijiyapandeyofficial123/"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="mailto:srijiya.bca@email.com"><i class="fas fa-envelope"></i></a>
+            <div class="footer-left">
+                <p>&copy; <span id="current-year">2026</span> Srijiya. All rights reserved.</p>
+                <p class="footer-subtext">Designed & Built with <i data-lucide="heart"
+                        style="width: 12px; height: 12px; color: #ff4b4b; fill: #ff4b4b;"></i></p>
+            </div>
+
+            <div class="footer-right" style="align-items: center; gap: 16px;">
+                <div class="footer-links">
+                    <a href="https://github.com/pandeysrijiya/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/srijiyapandeyofficial123/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:srijiya.bca@email.com"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </div>
     </footer>
