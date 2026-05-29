@@ -5,11 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srijiya</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=6">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- FontAwesome for Brand Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Devicon for Tech Icons -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wdth,wght@0,150,100..900;1,150,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -39,29 +49,6 @@
                 </div>
             </div>
 
-            <!-- Info Grid -->
-            <div class="info-grid">
-                <div class="info-item">
-                    <i data-lucide="code-2"></i>
-                    Student
-                </div>
-                <div class="info-item">
-                    <i data-lucide="clock"></i>
-                    <span id="live-time">12:00 AM</span>
-                </div>
-                <div class="info-item">
-                    <i data-lucide="map-pin"></i>
-                    India
-                </div>
-                <div class="info-item">
-                    <i data-lucide="globe"></i>
-                    srijiya.vercel.app
-                </div>
-                <div class="info-item">
-                    <i data-lucide="user"></i>
-                    she/her
-                </div>
-            </div>
 
             <!-- Bio -->
             <div class="bio">
@@ -73,7 +60,7 @@
 
             <!-- Actions -->
             <div class="actions">
-                <a href="#" class="btn btn-primary">
+                <a href="Srijiya.pdf" class="btn btn-primary">
                     <i data-lucide="file-text"></i>
                     Resume
                 </a>
@@ -82,28 +69,83 @@
                     Contact
                 </a>
                 <div class="social-links">
-                    <a href="#" class="social-icon" aria-label="LinkedIn" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-icon" aria-label="Twitter/X" data-tooltip="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon" aria-label="GitHub" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="mailto:srijiya.bca@email.com" class="social-icon" aria-label="Email" data-tooltip="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/srijiyapandeyofficial123/" class="social-icon"
+                        aria-label="LinkedIn" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter/X" data-tooltip="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/pandeysrijiya/" class="social-icon" aria-label="GitHub"
+                        data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:srijiya.bca@email.com" class="social-icon" aria-label="Email"
+                        data-tooltip="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </section>
 
         <!-- Tech Stack Section -->
-        <section id="tech">
-            <h2>Tech Stack</h2>
-            <div class="tech-stack-grid">
-                <div class="tech-item" data-tech="html"><i data-lucide="code-2"></i> HTML5</div>
-                <div class="tech-item" data-tech="css"><i data-lucide="palette"></i> CSS3</div>
-                <div class="tech-item" data-tech="python"><i data-lucide="terminal"></i> Python</div>
-                <div class="tech-item" data-tech="cpp"><i data-lucide="code"></i> C++</div>
-                <div class="tech-item" data-tech="js"><i data-lucide="layout"></i> JavaScript</div>
-                <div class="tech-item" data-tech="uiux"><i data-lucide="layers"></i> UI/UX Design</div>
-                <div class="tech-item" data-tech="mysql"><i data-lucide="database"></i> MySQL</div>
-                <div class="tech-item" data-tech="git"><i data-lucide="git-branch"></i> Git & GitHub</div>
-                <div class="tech-item" data-tech="next"><i class="fas fa-bolt"></i> Next.js</div>
-                <div class="tech-item" data-tech="figma"><i class="fab fa-figma"></i> Figma</div>
+        <section id="tech" style="margin: 40px 0 60px;">
+            <h6
+                style="text-transform: uppercase; font-size: 11px; letter-spacing: 2px; color: var(--text-secondary); margin-bottom: 24px; font-weight: 600;">
+                Tech Stack</h6>
+
+            <style>
+                .tech-icon-wrapper {
+                    position: relative;
+                    cursor: pointer;
+                    display: inline-flex;
+                    padding: 8px;
+                    /* Extra padding for easier tapping on mobile */
+                }
+
+                .tech-icon-wrapper i {
+                    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+
+                .tech-icon-wrapper:hover i {
+                    transform: scale(1.3);
+                }
+
+                #tech-scroll {
+                    display: flex;
+                    gap: 20px;
+                    font-size: 28px;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    /* Wraps cleanly on mobile */
+                }
+
+                @media (min-width: 768px) {
+                    #tech-scroll {
+                        gap: 28px;
+                    }
+                }
+            </style>
+
+            <div id="tech-scroll">
+
+                <div class="tech-icon-wrapper" data-tooltip="C"><i class="devicon-c-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="C++"><i class="devicon-cplusplus-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="Java"><i class="devicon-java-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="Python"><i class="devicon-python-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="SQL"><i class="devicon-mysql-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="JavaScript"><i
+                        class="devicon-javascript-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="HTML5"><i class="devicon-html5-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="CSS3"><i class="devicon-css3-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="Git"><i class="devicon-git-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="GitHub"><i class="devicon-github-original"
+                        style="color: var(--text-primary);"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="VS Code"><i class="devicon-vscode-plain colored"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="Figma"><i class="devicon-figma-plain colored"></i></div>
+
+                <!-- AI & Modern Tools -->
+                <div class="tech-icon-wrapper" data-tooltip="Antigravity"><i data-lucide="rocket"
+                        style="color: var(--text-primary); width: 28px; height: 28px;"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="Cursor"><i data-lucide="mouse-pointer-2"
+                        style="color: var(--text-primary); width: 28px; height: 28px;"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="Lovable"><i data-lucide="heart"
+                        style="color: #ff4b4b; fill: #ff4b4b; width: 28px; height: 28px;"></i></div>
+                <div class="tech-icon-wrapper" data-tooltip="Codex"><i data-lucide="brain-circuit"
+                        style="color: var(--text-primary); width: 28px; height: 28px;"></i></div>
             </div>
         </section>
 
@@ -111,59 +153,52 @@
         <section id="showcase">
             <h2>Projects</h2>
             <div class="project-grid">
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>Student Attendance System</h3>
-                        <p>Java, MySQL</p>
+                <div class="resume-card">
+                    <div class="resume-header">
+                        <div class="resume-title-group">
+                            <h3>
+                                Personal Portfolio Website
+                                <span
+                                    style="color: var(--text-secondary); font-weight: normal; font-size: 16px;">—</span>
+                                <div class="resume-links">
+                                    <a href="#" target="_blank">Live Demo</a> |
+                                    <a href="https://github.com/pandeysrijiya/" target="_blank">GitHub</a>
+                                </div>
+                            </h3>
+                        </div>
+                        <div class="resume-date">Aug 2025</div>
                     </div>
-                    <a href="#" class="project-link"><i data-lucide="arrow-up-right"></i></a>
+                    <ul class="resume-list">
+                        <li>Built and deployed a fully responsive portfolio website to showcase projects,
+                            certifications, and technical skills.</li>
+                        <li>Developed modern user interfaces with smooth navigation, mobile-first design, and optimized
+                            performance across devices.</li>
+                        <li><em>Tech Stack: HTML5, CSS3, JavaScript, Vercel</em></li>
+                    </ul>
                 </div>
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>Women Safety App UI</h3>
-                        <p>Figma, React Native</p>
-                    </div>
-                    <a href="#" class="project-link"><i data-lucide="arrow-up-right"></i></a>
-                </div>
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>College Event Portal</h3>
-                        <p>HTML, CSS, JS</p>
-                    </div>
-                    <a href="#" class="project-link"><i data-lucide="arrow-up-right"></i></a>
-                </div>
-            </div>
-        </section>
 
-        <!-- Blogs Section -->
-        <section id="blogs">
-            <h2>Latest Stories</h2>
-            <div class="blog-grid" id="blog-container">
-                <!-- Content injected by script.js -->
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="contact-container">
-                <div class="contact-info-card spotlight-card">
-                    <h3>Connect</h3>
-                    <p>I'm always open to discussing new projects, creative ideas or opportunities.</p>
-                    <div class="contact-links-grid">
-                        <a href="mailto:srijiya.bca@email.com" class="contact-link-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>srijiya.bca@email.com</span>
-                        </a>
-                        <a href="#" class="contact-link-item">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="#" class="contact-link-item">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
+                <div class="resume-card">
+                    <div class="resume-header">
+                        <div class="resume-title-group">
+                            <h3>
+                                Quiz Application
+                                <span
+                                    style="color: var(--text-secondary); font-weight: normal; font-size: 16px;">—</span>
+                                <div class="resume-links">
+                                    <a href="#" target="_blank">Live Demo</a> |
+                                    <a href="https://github.com/pandeysrijiya/" target="_blank">GitHub</a>
+                                </div>
+                            </h3>
+                        </div>
+                        <div class="resume-date">May 2026</div>
                     </div>
+                    <ul class="resume-list">
+                        <li>Developed an interactive quiz application with dynamic question rendering, automated score
+                            calculation, and instant result generation.</li>
+                        <li>Implemented answer validation, question navigation, and responsive layouts to deliver a
+                            seamless user experience.</li>
+                        <li><em>Tech Stack: HTML5, CSS3, JavaScript</em></li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -172,18 +207,89 @@
         <section id="education">
             <h2>Education</h2>
             <div class="project-grid">
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>Bachelor of Computer Applications</h3>
-                        <p>Current • University of Technology</p>
+                <div class="resume-card">
+                    <div class="resume-header">
+                        <div class="resume-title-group">
+                            <h3>
+                                Bachelor of Computer Application (BCA) <span
+                                    style="color: var(--text-secondary); font-weight: normal; font-size: 16px;">|</span>
+                                <span style="font-weight: 500;">ISM Patna</span>
+                            </h3>
+                        </div>
+                        <div class="resume-date">July 2024 - June 2027</div>
+                    </div>
+                    <div style="font-size: 14px; color: var(--text-secondary);">CGPA: 8.39/10</div>
+                </div>
+
+                <div class="resume-card">
+                    <div class="resume-header">
+                        <div class="resume-title-group">
+                            <h3>
+                                Class XII <span
+                                    style="color: var(--text-secondary); font-weight: normal; font-size: 16px;">|</span>
+                                <span style="font-weight: 500;">Purnia Mahila College</span>
+                            </h3>
+                        </div>
+                        <div class="resume-date">Apr 2022 - Mar 2023</div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>Higher Secondary Education</h3>
-                        <p>2022 • Science Stream</p>
+            </div>
+        </section>
+
+
+        <!-- Achievements & Certifications -->
+        <section id="achievements">
+            <h2>Achievements & Certifications</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i data-lucide="award" style="width:18px;height:18px;"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">IIT Delhi</div>
+                        <h3>Campus Ambassador</h3>
+                        <p>Represented the institution and facilitated student outreach for national-level programmes.</p>
                     </div>
                 </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i data-lucide="users" style="width:18px;height:18px;"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">ISM Patna</div>
+                        <h3>Core Member, IT Club</h3>
+                        <p>Contributed to research, documentation, and technical initiatives as Sub Leader.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i data-lucide="file-text" style="width:18px;height:18px;"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">Research Publication</div>
+                        <h3>Research Paper — Blockchain Voting</h3>
+                        <p>Authored a review paper exploring decentralised consensus mechanisms and security models.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i data-lucide="book-open" style="width:18px;height:18px;"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">Ongoing</div>
+                        <h3>Continuous Learning</h3>
+                        <p>Actively pursuing courses in modern web development, JavaScript, and software engineering fundamentals.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="margin-top: 80px; margin-bottom: 60px; text-align: center;">
+            <h2 style="margin-bottom: 8px;">Let's Connect</h2>
+            <p style="color: var(--text-secondary); font-size: 15px; margin-bottom: 32px;">Feel free to reach out!</p>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a href="mailto:srijiya.bca@email.com" class="social-icon" data-tooltip="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/srijiyapandeyofficial123/" target="_blank" class="social-icon" data-tooltip="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/pandeysrijiya/" target="_blank" class="social-icon" data-tooltip="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" class="social-icon" data-tooltip="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
         </section>
     </main>
@@ -192,8 +298,8 @@
         <div class="footer-content">
             <p>&copy; 2026 Srijiya. All rights reserved.</p>
             <div class="footer-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/pandeysrijiya/"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/srijiyapandeyofficial123/"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="mailto:srijiya.bca@email.com"><i class="fas fa-envelope"></i></a>
             </div>
