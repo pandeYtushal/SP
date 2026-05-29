@@ -40,7 +40,7 @@
 }
 
 body.light-theme {
-    --bg-color: #e8e8ed;
+    --bg-color: #e8d9ca;
     --text-primary: #1d1d1f;
     --text-secondary: #86868b;
     --border-color: rgba(0, 0, 0, 0.1);
@@ -961,21 +961,24 @@ body.light-theme footer {
 }
 
 /* Brand specific glows using :has */
-.footer-links a:has(.fa-github):hover { 
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15); 
-    border-color: var(--color-github); 
+.footer-links a:has(.fa-github):hover {
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    border-color: var(--color-github);
 }
-.footer-links a:has(.fa-linkedin):hover { 
-    box-shadow: 0 8px 20px rgba(0, 119, 181, 0.3); 
-    border-color: var(--color-linkedin); 
+
+.footer-links a:has(.fa-linkedin):hover {
+    box-shadow: 0 8px 20px rgba(0, 119, 181, 0.3);
+    border-color: var(--color-linkedin);
 }
-.footer-links a:has(.fa-twitter):hover { 
-    box-shadow: 0 8px 20px rgba(29, 161, 242, 0.3); 
-    border-color: var(--color-twitter); 
+
+.footer-links a:has(.fa-twitter):hover {
+    box-shadow: 0 8px 20px rgba(29, 161, 242, 0.3);
+    border-color: var(--color-twitter);
 }
-.footer-links a:has(.fa-envelope):hover { 
-    box-shadow: 0 8px 20px rgba(234, 67, 53, 0.3); 
-    border-color: var(--color-mail); 
+
+.footer-links a:has(.fa-envelope):hover {
+    box-shadow: 0 8px 20px rgba(234, 67, 53, 0.3);
+    border-color: var(--color-mail);
 }
 
 /* --- Spotlight Effect --- */
@@ -1145,7 +1148,8 @@ body.light-theme footer {
     left: 0;
     width: 0%;
     height: 4px;
-    background: linear-gradient(to right, #10b981, #34d399); /* Emerald to Mint */
+    background: linear-gradient(to right, #10b981, #34d399);
+    /* Emerald to Mint */
     z-index: 9999;
     border-radius: 0 4px 4px 0;
     box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
@@ -1193,7 +1197,8 @@ body.light-theme footer {
     border-color: var(--accent);
     color: #fff;
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4); /* Emerald glow */
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    /* Emerald glow */
 }
 
 @media (max-width: 600px) {
@@ -1202,7 +1207,9 @@ body.light-theme footer {
         gap: 24px;
         text-align: center;
     }
-    .footer-right, .footer-left {
+
+    .footer-right,
+    .footer-left {
         align-items: center;
     }
 }
@@ -1227,7 +1234,10 @@ body.light-theme footer {
 /* --- Modal & Form --- */
 .modal-overlay {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -1259,7 +1269,7 @@ body.light-theme .modal-overlay {
     position: relative;
     transform: translateY(20px) scale(0.95);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
 }
 
 .modal-overlay.active .modal-content {
@@ -1268,16 +1278,21 @@ body.light-theme .modal-overlay {
 
 .close-btn {
     position: absolute;
-    top: 20px; right: 20px;
+    top: 20px;
+    right: 20px;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 50%;
-    width: 36px; height: 36px;
-    display: flex; align-items: center; justify-content: center;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.2s;
 }
+
 .close-btn:hover {
     background: var(--card-hover);
     color: var(--text-primary);
